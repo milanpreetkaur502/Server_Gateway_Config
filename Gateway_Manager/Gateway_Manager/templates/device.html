@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<title>Gateway Manager</title>
+</head>
+<style>
+h1 {text-align: center;}
+</style>
+<body>
+	<h1>Gateway Manager</h1>
+	<form action ="{{url_for('save')}}"method="POST">
+		<fieldset>
+		<legend><h3>Device Config</h3></legend>
+		<input type="text" name="dev_id"required="required"placeholder="Device ID"size="30"/></title><br />
+		<br />
+		<input type="text" name="dev_name"required="required"placeholder="Name" size="30"/></title><br />
+		<br />
+		<input type="radio" name="dev_netif" value="Ethernet" checked>Ethernet
+		<input type="radio" name="dev_netif" value="Wifi">Wifi <br />
+		<br />
+		<input type="radio" name="dev_status" value="Active" checked>Active
+		<input type="radio" name="dev_status" value="Inactive">Inactive <br />
+		<br />
+		<input type="hidden" name="group" value="Device"/>
+		<input type="submit" value="Save" />
+		</fieldset>
+	</form>
+	<br />
+	<form action="{{url_for('save')}}"method="POST">
+		<input type="hidden" name="group" value="Cancel"/>
+		<input type="submit" value="Cancel"/>
+	</form>
+</body>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Gateway Manager</title>
+</head>
+<style>
+h1 {text-align: center;}
+</style>
+<body>
+	<h1>Gateway Manager</h1>
+	<form action="{{url_for('update')}}"method="POST">
+		<input type="hidden" name="group" value="Logout"/>
+		<input type="submit" value="Log out"/>
+	</form>
+	{% for row in device_data %}
+	<fieldset>
+	<legend><h3>Device</h3></legend>
+		<p><b>DEVICE ID : </b>{{row["ID"]}}</p>	
+		<p><b>NAME : </b>{{row["NAME"]}}</p>
+		<p><b>N/W INTERFACE : </b>{{row["INTERFACE"]}}</p>	
+		<p><b>IPv4 : </b>{{row["IPv4"]}}</p>
+		<p><b>STATUS : </b>{{row["STATUS"]}}</p>
+		<form action="{{url_for('update')}}"method="POST">
+			<input type="hidden" name="group" value="Device"/>
+			<input type="submit" value="Edit"/>
+		</form>
+	</fieldset>
+	{% endfor %}
+	{% for row in cloud_data %}
+	<fieldset>
+	<legend><h3>Cloud</h3></legend>
+	
+		<p><b>PROTOCOL : </b>{{row["PROTOCOL"]}}</p>	
+		<p><b>TYPE : </b>{{row["CONTYPE"]}}</p>
+		<p><b>HOST ADDRESS : </b>{{row["HOST"]}}</p>	
+		<p><b>PORT : </b>{{row["PORT"]}}</p>
+		<form action="{{url_for('update')}}"method="POST">
+			<input type="hidden" name="group" value="Cloud"/>
+			<input type="submit" value="Edit"/>
+		</form>
+	
+	</fieldset>
+	{% endfor %}
+	{% for row in gw_data %}
+	<fieldset>
+	<legend><h3>Gateway</h3></legend>
+	
+		<p><b>NODE STATUS : </b>{{row["N_STATUS"]}}</p>	
+		<p><b>CLOUD STATUS : </b>{{row["C_STATUS"]}}</p>
+		<form action="{{url_for('update')}}"method="POST">
+			<input type="hidden" name="group" value="Gateway"/>
+			<input type="submit" value="Edit"/>
+		</form>
+	</fieldset>
+	{% endfor %}
+</body>
+</html>
+	
+	
+	
+	

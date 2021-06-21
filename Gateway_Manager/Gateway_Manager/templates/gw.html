@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+	<title>Gateway Manager</title>
+</head>
+<style>
+h1 {text-align: center;}
+</style>
+<body>
+	<h1>Gateway Manager</h1>
+	<form action ="{{url_for('save')}}"method="POST">
+		<fieldset>
+		<legend><h3>Gateway Config</h3></legend>
+		<label>Node Application</label> 
+		<input type="radio" name="gw_node" value="Active" checked>Active
+		<input type="radio" name="gw_node" value="Inactive">Inactive<br />
+		<br />
+		<label>Cloud Application</label> 
+		<input type="radio" name="gw_cloud" value="Active" checked>Active
+		<input type="radio" name="gw_cloud" value="Inactive">Inactive<br />
+		<br />
+		<input type="hidden" name="group" value="Gateway"/>
+		<input type="submit" value="Save" />
+		</fieldset>
+	</form>
+	<br />
+	<form action="{{url_for('save')}}"method="POST">
+		<input type="hidden" name="group" value="Cancel"/>
+		<input type="submit" value="Cancel"/>
+	</form>
+</body>
